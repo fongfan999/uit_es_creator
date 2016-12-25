@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get 'bot/webhoook'
+  mount Messenger::Bot::Space => "/webhook"
 end

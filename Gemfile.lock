@@ -70,6 +70,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    messenger-bot (1.0.3.2)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -165,6 +166,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  messenger-bot (~> 1.0, >= 1.0.3.2)
   pg
   puma (~> 3.0)
   rails (~> 5.0.1)
