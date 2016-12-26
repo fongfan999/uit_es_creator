@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#main {
+  flex: 1 0 auto;
+}
+
+#banner {
+  margin-top: 0;
+  height: 250px;
+}
+
+#us-creator {
+  margin-top: -100px;
+
+  form {
+    max-width: 300px;
+    margin: 0 auto;
+
+    input[type='text'] {
+      font-size: 1.5em;
+      font-weight: 600;
+    }
+  }
+}

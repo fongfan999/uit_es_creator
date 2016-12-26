@@ -12,11 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require materialize
 //= require turbolinks
 //= require_tree .
 
-$(window).on('load', function() {
 
-
-
+$(function() {
+  $('.persistent').click(function(e) {
+    e.preventDefault();
+  });
 });
