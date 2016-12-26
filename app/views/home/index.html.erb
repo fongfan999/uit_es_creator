@@ -1,0 +1,46 @@
+<br>
+<br>
+<br>
+<br>
+
+<%= form_tag root_path, method: :get do %>
+  <div class="input-field">
+    <%= label_tag :student_id, "Your Student ID" %>
+    <%= text_field_tag :student_id, params[:student_id] %>
+  </div>
+<% end %>
+
+<br>
+<br>
+<br>
+<br>
+
+<% if @result.present? %>
+<div id="schedule">
+  <h1>Lịch thi của <%= @result.first[:student]['student_name']  %></h1>
+  
+  <table>
+    <tr>
+      <th>Môn thi</th>
+      <th>Số báo danh</th>
+      <th>Ngày thi</th>
+      <th>Thứ</th>
+      <th>Ca thi</th>
+      <th>Phòng</th>
+      <th>Ghi chú</th>
+    </tr>
+    <% @result.each do |row| %>
+      <tr>
+        <th><%= row[:name] %></th>
+        <th><%= row[:student]['id_number'] %></th>
+        <th><%= row[:date] %></th>
+        <th><%= row[:day] %></th>
+        <th><%= row[:shift] %></th>
+        <th><%= "#{row[:room]} (#{row[:sum]})" %></th>
+        <th><%= row[:student]['note'] %></th>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<% end %>
+
