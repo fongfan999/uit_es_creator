@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>UIT ES Creator - Hệ thống tạo lịch thi cho sinh viên trường UIT</title>
+    <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -14,13 +15,13 @@
       <nav class="teal lighten-1 z-depth-0">
         <div class="nav-wrapper container">
           <%= link_to uit_es_creator_path, class: "brand-logo" do %>
-            <%= image_tag 'logo.png', size: '48x48' %>
+            <%= image_tag 'logo.png', size: '36x36' %>
             <span class="hide-on-small-only">UIT ES Creator</span>
           <% end %>
 
           <ul class="right">
             <li>
-              <%= link_to "https://github.com/fongfan999/uit_exam_schedule/issues", class: "tooltipped", data: { tooltip: "Báo lỗi",
+              <%= link_to "https://github.com/fongfan999/uit_es_creator/issues", class: "tooltipped", data: { tooltip: "Báo lỗi",
                 delay: 100 }, target: "blank" do %>
                 <i class="material-icons">info_outline</i>
               <% end %>
