@@ -8,6 +8,7 @@
 
 # Contributing
 I encourage you to contribute to **UIT ES Creator**! Please follow the instruction below:
+
 1. Fork it (https://github.com/fongfan999/uit_es_creator/fork)
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
