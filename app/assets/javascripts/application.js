@@ -21,4 +21,12 @@ $(function() {
   $('.persistent').click(function(e) {
     e.preventDefault();
   });
+
+  $(document).scroll(function() {
+    if ($(window).scrollTop() == 0) {
+      $('nav.teal').addClass('z-depth-0');
+    } else {
+      $('nav.teal').removeClass('z-depth-0');
+    }
+  });
 });

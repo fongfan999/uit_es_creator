@@ -1,26 +1,29 @@
 class HomeController < ApplicationController
   def index
-    redirect_to "http://www.foxfizz.com"
+    redirect_to uit_es_creator_path
   end
 
   def uit_es_creator
-    file_path = Rails.root.join('lib', 'uit_daa', 'data.json')
-    data = MultiJson.load(file_path)
-    
-    student_id = params[:student_id]
+    if params[:student_id].present?
+      student_id = params[:student_id]
+      # full_name will be the name or student ID
+      @full_name = student_id.dup
 
-    @result = data.map { |data|
-      data if data.last['students'].include?(student_id)
-    }.compact.map { |data|
-      {
-        name: data.last['name'],
-        date: data.last['date'],
-        day: data.last['day'],
-        shift: data.last['shift'],
-        room: data.last['room'],
-        sum: data.last['sum'],
-        student: data.last['students'][student_id]
-      }
-    }.sort_by! { |r| [r[:date], r[:day]] }
+      # Load datasource
+      @datasource = MultiJson.load Rails.root.join('public', 'daa_data.json')
+
+      # Get the classes that belong to this student
+      @result = @datasource.map { |data|
+        if data.last['students'].include?(student_id)
+          # Update full_name for the first name
+          if @full_name == student_id
+            @full_name = data.last['students'][student_id]['student_name']
+          end
+
+          # return mapping data
+          data
+        end
+      }.compact.sort_by { |class_code, data| [ data['date'], data['day'] ] }
+  end
   end
 end
