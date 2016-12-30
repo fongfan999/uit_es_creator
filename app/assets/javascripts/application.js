@@ -44,5 +44,6 @@ $(document).on('turbolinks:load', function() {
   });
 
   $(".se-pre-con").fadeOut("fast");
+  
 });
 

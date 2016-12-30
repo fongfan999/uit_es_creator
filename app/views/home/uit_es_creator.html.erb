@@ -111,12 +111,16 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="card">
-    <h5 class="card-panel teal lighten-1 white-text">Nhận xét, góp ý</h5>
-    <%= render 'facebook_comment', full_path: uit_es_creator_url %>
-  </div>
-</div>
 
-<%= render 'application/facebook_comments_sdk' %>
+<% if @result.present? %>
+  <div class="container">
+    <div class="card">
+      <h5 class="card-panel teal lighten-1 white-text">Nhận xét, góp ý</h5>
+      <%= render 'application/facebook_comment',
+        full_path: uit_es_creator_url %>
+    </div>
+  </div>
+
+  <%= render 'application/facebook_comments_sdk' %>
+<% end %>
 
