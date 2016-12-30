@@ -2,7 +2,8 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background: image-url("bg.jpg") center;
+  // background: image-url("bg.jpg") center;
+  background-color: #f1f1f1;
 }
 
 .se-pre-con {
@@ -77,6 +78,10 @@ body {
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
+  }
+
+  .tabs {
+    overflow: hidden;
   }
 
   .collapsible {

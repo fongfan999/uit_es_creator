@@ -16,8 +16,8 @@
 //= require turbolinks
 //= require_tree .
 
+$(document).on('turbolinks:load', function() {
 
-$(function() {
   $('.persistent').click(function(e) {
     e.preventDefault();
   });
@@ -42,9 +42,7 @@ $(function() {
       $('#notifs').removeClass('l12').addClass('l5');
     }
   });
-});
 
-$(window).on('load', function() {
-  $(".se-pre-con").fadeOut("slow");
+  $(".se-pre-con").fadeOut("fast");
 });
 

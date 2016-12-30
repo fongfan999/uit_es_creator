@@ -4,7 +4,11 @@
   </h5>
 </div>
 
-<div id="content" class=<%= "container" if @result.blank? %>>
+<!-- <div class="center-align preloader">
+  <%#= render "shared/circle_preloader" %>
+</div> -->
+
+<div id="content" class="content-with-preloader <%= 'container' if @result.blank? %>">
   <div class="row">
     <div id="us-creator" 
       class="col s12 m12 <%= @result.blank? ? "l12" : "l7" %>"> 
