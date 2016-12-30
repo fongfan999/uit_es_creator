@@ -10,8 +10,7 @@
 
 <div id="content" class="content-with-preloader <%= 'container' if @result.blank? %>">
   <div class="row">
-    <div id="us-creator" 
-      class="col s12 m12 <%= @result.blank? ? "l12" : "l7" %>"> 
+    <div id="us-creator" class="col s12 m12 l7"> 
       <div  class="card-panel">
         <div class="right">
           <a id="toggle-width" class="hide-on-med-and-down persistent teal-text lighten-1">
@@ -111,3 +110,13 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="card">
+    <h5 class="card-panel teal lighten-1 white-text">Nhận xét, góp ý</h5>
+    <%= render 'facebook_comment', full_path: uit_es_creator_url %>
+  </div>
+</div>
+
+<%= render 'application/facebook_comments_sdk' %>
+
