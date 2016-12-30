@@ -1,7 +1,7 @@
 # Welcome to UIT ES Creator
 **UIT ES Creator** is a web-application that can create instantly the exam schedule for **UITers**. This creator helps you save your time. Let's spend your time for going on a date :&#41;.
 
-# Getting Started
+# How to use
 1. Visit  [this link](http://www.foxfizz.me/uit_es_creator)
 2. Enter your Student ID
 3. Enjoy!

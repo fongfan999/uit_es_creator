@@ -1,57 +1,12 @@
-<div id="banner" class="card-panel teal lighten-1 white-text z-depth-0">
-  <h5 class="right-align">Hệ thống tạo lịch thi dành cho sinh viên UIT</h5>
+<div id="notifs" class="container">
+  <ul class="collapsible popout" data-collapsible="accordion">
+    <% @off_class_notifs.each do |notif| %>
+      <%= render(partial: "notifs/notif", locals: {notif: notif}) %>
+    <% end %>
+  </ul>
 </div>
 
-<div class="container">
-<div id="us-creator" class="card-panel">
-  <%= form_tag root_path, method: :get do %>
-    <div class="input-field">
-      <%= text_field_tag :student_id, params[:student_id],
-        autocomplete: "off", class: "center-align" %>
-      <%= label_tag :student_id, "Mã số sinh viên" %>
-    </div>
-  <% end %>
 
-  <br>
-
-  <% if @result.blank? && params[:student_id] %>
-    <h6 class="center-align">Chúng tôi không thể tìm thấy MSSV này :&#40;</h6>
-  <% elsif @result.present? %>
-    <div id="schedule">
-      <h4 class="center-align">
-        Lịch thi của <%= @result.first[:student]['student_name']  %>
-      </h4>
-      
-      <div style="overflow-x: auto;">
-        <table class="striped">
-          <thead>
-            <tr>
-              <th>Ngày thi</th>
-              <th>Thứ</th>
-              <th>Ca thi</th>
-              <th>Môn thi</th>
-              <th>Số báo danh</th>
-              <th>Phòng</th>
-              <th>Ghi chú</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @result.each do |row, index| %>
-            <tr>
-              <td><%= row[:date] %></td>
-              <td><%= row[:day] %></td>
-              <td><%= row[:shift] %></td>
-              <td><%= row[:name] %></td>
-              <td><%= row[:student]['id_number'] %></td>
-              <td><%= "#{row[:room]} (#{row[:sum]})" %></td>
-              <td><%= row[:student]['note'] %></td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  <% end %>
-</div>
-</div>
+<% @off_class_notifs.each do |notif| %>
+  <%= "Matched" if  @class_codes.find { |c| notif['title'] =~ /#{c}/ } %>
+<% end %>

@@ -29,4 +29,22 @@ $(function() {
       $('nav.teal').removeClass('z-depth-0');
     }
   });
+
+  $('#toggle-width').click(function() {
+    // 2 blocks
+    if ($(this).text().trim() === 'keyboard_arrow_right') {
+      $('#toggle-width i').text('keyboard_arrow_left');
+      $('#us-creator').removeClass('l7').addClass('l12');
+      $('#notifs').removeClass('l5').addClass('l12');
+    } else {
+      $('#toggle-width i').text('keyboard_arrow_right');
+      $('#us-creator').removeClass('l12').addClass('l7');
+      $('#notifs').removeClass('l12').addClass('l5');
+    }
+  });
 });
+
+$(window).on('load', function() {
+  $(".se-pre-con").fadeOut("slow");
+});
+

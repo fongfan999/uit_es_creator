@@ -2,13 +2,38 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background: image-url("bg.jpg") no-repeat center;
+  background: image-url("bg.jpg") center;
+}
+
+.se-pre-con {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20000;
+  background-color: #fff;
+
+  .preloader-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -32px;
+    margin-left: -32px;
+  }
 }
 
 .brand-logo {
   img {
     margin-top: 10px;
   }
+}
+
+.col {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 #main {
@@ -20,9 +45,11 @@ body {
   height: 250px;
 }
 
-#us-creator {
+#content {
   margin-top: -150px;
+}
 
+#us-creator {
   form {
     max-width: 300px;
     margin: 0 auto;
@@ -31,5 +58,49 @@ body {
       font-size: 1.5em;
       font-weight: 600;
     }
+  }
+
+  #toggle-width {
+    cursor: pointer;
+  }
+}
+
+#notifs {
+  & > .card {
+    padding-bottom: 3px;
+  }
+
+  .title {
+    color: rgb(238, 110, 115);
+    text-align: center;
+    padding: 24px 24px 0;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .collapsible {
+    .collapsible-header {
+      .submitted {
+        font-style: italic;
+      }
+    }
+    .collapsible-header.active {
+      background-color: #26a69a;
+      color: #fff;
+    }
+
+    .collapsible-body {
+      background-color: rgba(255, 255, 255, .6);
+
+      .origin-notif {
+        margin-right: 15px;
+        margin-top: 15px;
+      }
+    }
+  }
+
+  #general-notifs, #off-class-notifs {
+    padding-top: 15px;
   }
 }
