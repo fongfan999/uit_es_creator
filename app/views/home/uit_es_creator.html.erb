@@ -89,7 +89,7 @@
           <div id="general-notifs">
             <ul class="collapsible popout" data-collapsible="accordion">
               <!-- Dislay relevant notification only -->
-              <% @off_class_notifs[0..9].each do |notif| %>
+              <% @notifs_data[0..9].each do |notif| %>
                 <%= render(partial: "notifs/notif", locals: { notif: notif }) %>
               <% end %>
             </ul>
@@ -98,7 +98,7 @@
           <div id="off-class-notifs">
             <ul class="collapsible popout" data-collapsible="accordion">
               <!-- Dislay relevant notification only -->
-              <% @off_class_notifs[10..-1].each_with_index do |notif, index| %>
+              <% @notifs_data[10..-1].each_with_index do |notif, index| %>
                 <% if @class_codes.find { |c| notif['title'] =~ /#{c}/ } %>
                   <%= render(partial: "notifs/notif", locals: { notif: notif }) %>
                 <% end %>
