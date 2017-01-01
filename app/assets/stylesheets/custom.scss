@@ -2,7 +2,6 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  // background: image-url("bg.jpg") center;
   background-color: #f1f1f1;
 }
 
@@ -63,6 +62,16 @@ body {
 
   #toggle-width {
     cursor: pointer;
+  }
+
+  table {
+    td {
+      border-right: 1px solid #26a69a;
+    }
+
+    td:last-child {
+      border-right: none;
+    }
   }
 }
 
