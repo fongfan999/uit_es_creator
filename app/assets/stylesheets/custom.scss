@@ -65,12 +65,29 @@ body {
   }
 
   table {
-    td {
-      border-right: 1px solid #26a69a;
+    th:first-child {
+      border-left: 1px solid teal;
     }
 
-    td:last-child {
-      border-right: none;
+    th {
+      border-right: 1px solid teal;
+      border-radius: 0;
+    }
+
+
+    td:first-child {
+      border-left: 1px solid #26a69a;
+    }
+
+    td {
+      border-right: 1px solid #26a69a;
+      border-top: 1px solid #26a69a;
+    }
+
+    tbody tr:last-child {
+      td {
+        border-bottom: 1px solid #26a69a;
+      }
     }
   }
 }

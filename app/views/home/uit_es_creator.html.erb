@@ -35,12 +35,12 @@
             <div style="overflow-x: auto;">
               <table class="striped centered">
                 <thead>
-                  <tr>
+                  <tr class="teal lighten-1 white-text">
                     <th>Ngày thi</th>
                     <th>Thứ</th>
                     <th>Ca thi</th>
                     <th>Môn thi</th>
-                    <th>Số báo danh</th>
+                    <th>SBD</th>
                     <th>Phòng</th>
                     <th>Ghi chú</th>
                   </tr>
@@ -50,13 +50,13 @@
                   <% @result.each do |class_code, data| %>
                   <% student = data['students'][params[:student_id]] %>
                   <tr>
-                    <td><%= data['date'] %></td>
-                    <td><%= data['day'] %></td>
-                    <td><%= data['shift'] %></td>
-                    <td><%= data['name'] %></td>
-                    <td><%= student['id_number'] %></td>
-                    <td><%= "#{data['room']} (#{data['sum']})" %></td>
-                    <td><%= student['note'] %></td>
+                    <td title="Ngày thi"><%= data['date'] %></td>
+                    <td title="Thứ"><%= data['day'] %></td>
+                    <td title="Ca thi"><%= data['shift'] %></td>
+                    <td title="Môn thi"><%= data['name'] %></td>
+                    <td title="Số báo danh"><%= student['id_number'] %></td>
+                    <td title="Phòng thi"><%= "#{data['room']} (#{data['sum']})" %></td>
+                    <td title="Ghi chú"><%= student['note'] %></td>
                   </tr>
                   <% end %>
                 </tbody>
@@ -74,10 +74,10 @@
 
           <ul class="tabs row">
             <li class="tab col s6 m6 l6">
-              <a href="#general-notifs" class="">chung</a>
+              <a href="#general-notifs">chung</a>
             </li>
             <li class="tab col s6 m6 l6">
-              <a href="#off-class-notifs" class="active ">nghỉ (bù)</a>
+              <a href="#off-class-notifs" class="active">nghỉ (bù)</a>
             </li>
           </ul>
           
