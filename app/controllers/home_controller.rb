@@ -1,9 +1,5 @@
 class HomeController < ApplicationController
   def index
-    redirect_to uit_es_creator_path
-  end
-
-  def uit_es_creator
     if params[:student_id].present?
       student_id = params[:student_id]
       # full_name will be the name or student ID
@@ -31,6 +27,14 @@ class HomeController < ApplicationController
       # Load notifs
       @notifs_data = 
       MultiJson.load Rails.root.join('public', 'notifs_data.json')
+    end
   end
+
+  def show_notifs
+    head :ok
+  end
+
+  def uit_es_creator
+    redirect_to root_path
   end
 end

@@ -1,0 +1,91 @@
+<div id="banner" class="card-panel teal lighten-1 white-text z-depth-0">
+  <h5 class="right-align container">
+    Hệ thống tạo lịch thi dành cho sinh viên UIT
+  </h5>
+</div>
+
+<div id="content" class="content-with-preloader container">
+  <div class="row">
+    <div id="us-creator" class="col s12 m12 l12"> 
+      <div  class="card-panel">
+        <div class="right">
+          <a id="toggle-width" class="hide-on-med-and-down persistent teal-text lighten-1">
+            <i class="small material-icons">keyboard_arrow_right</i>
+          </a>
+        </div>
+
+        <%= form_tag root_path, method: :get do %>
+          <div class="input-field">
+            <%= text_field_tag :student_id, params[:student_id],
+              autocomplete: "off", class: "center-align" %>
+            <%= label_tag :student_id, "Mã số sinh viên" %>
+          </div>
+        <% end %>
+
+        <% if @result.blank? && params[:student_id] %>
+          <h6 class="center-align">Hệ thống không thể tìm thấy MSSV này :&#40;</h6>
+        <% elsif @result.present? %>
+          <div id="schedule">
+            <h4 class="center-align">
+              Lịch thi của <%= @full_name %>
+            </h4>
+            
+            <div style="overflow-x: auto;">
+              <table class="striped centered">
+                <thead>
+                  <tr class="teal lighten-1 white-text">
+                    <th>Ngày thi</th>
+                    <th>Thứ</th>
+                    <th>Ca thi</th>
+                    <th>Môn thi</th>
+                    <th>SBD</th>
+                    <th>Phòng</th>
+                    <th>Ghi chú</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @result.each do |class_code, data| %>
+                  <% student = data['students'][params[:student_id]] %>
+                  <tr>
+                    <td title="Ngày thi"><%= data['date'] %></td>
+                    <td title="Thứ"><%= data['day'] %></td>
+                    <td title="Ca thi"><%= data['shift'] %></td>
+                    <td title="Môn thi"><%= data['name'] %></td>
+                    <td title="Số báo danh"><%= student['id_number'] %></td>
+                    <td title="Phòng thi"><%= "#{data['room']} (#{data['sum']})" %></td>
+                    <td title="Ghi chú"><%= student['note'] %></td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if @result.present? %>
+  <div class="fixed-action-btn">
+    <%= link_to show_notifs_path, class: "btn-floating btn-large red
+      lighten-1 tooltipped waves-effect waves-light", method: :patch,
+      remote: true, id: "show-notifs",
+      data: { tooltip: "Xem thông báo", delay: 100, position: "left" } do %>
+      <i class="large material-icons">notifications_active</i>
+    <% end %>
+  </div>
+
+  <%= render(file: "home/show_notifs") %>
+
+  <div class="container">
+    <div class="card">
+      <h5 class="card-panel teal lighten-1 white-text">Nhận xét, góp ý</h5>
+      <%= render 'application/facebook_comment',
+        full_path: uit_es_creator_url %>
+    </div>
+  </div>
+
+  <%= render 'application/facebook_comments_sdk' %>
+<% end %>

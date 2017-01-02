@@ -31,19 +31,26 @@ $(document).on('turbolinks:load', function() {
   });
 
   $('#toggle-width').click(function() {
-    // 2 blocks
+    // 70%
     if ($(this).text().trim() === 'keyboard_arrow_right') {
+      $('#content').css('width', '100%');
       $('#toggle-width i').text('keyboard_arrow_left');
-      $('#us-creator').removeClass('l7').addClass('l12');
-      $('#notifs').removeClass('l5').addClass('l12');
     } else {
+      $('#content').css('width', '70%');
       $('#toggle-width i').text('keyboard_arrow_right');
-      $('#us-creator').removeClass('l12').addClass('l7');
-      $('#notifs').removeClass('l12').addClass('l5');
     }
   });
 
+  $('#show-notifs').click(function() {
+    $('.modal').modal({
+      ready: function() {
+        $('ul.tabs').tabs();
+      }
+    });
+
+    $('#show-notifs-content').modal('open');
+  });
+
   $(".se-pre-con").fadeOut("fast");
-  
 });
 
