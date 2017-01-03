@@ -48,6 +48,7 @@ $(document).on('turbolinks:load', function() {
       }
     });
 
+    $('.tooltipped').tooltip('remove');
     $('#show-notifs-content').modal('open');
   });
 

@@ -19,14 +19,15 @@ class HomeController < ApplicationController
           # return mapping data
           data
         end
-      }.compact.sort_by { |class_code, data| [ data['date'], data['day'] ] }
-
+      }.compact.sort_by do |class_code, data|
+        [ data['date'].last(4), data['date'], data['day'] ]
+      end
 
       # Get all class codes
       @class_codes = @result.map { |code| code.first.sub(/_.+/, '') }
       # Load notifs
       @notifs_data = 
-      MultiJson.load Rails.root.join('public', 'notifs_data.json')
+        MultiJson.load Rails.root.join('public', 'notifs_data.json')
     end
   end
 
