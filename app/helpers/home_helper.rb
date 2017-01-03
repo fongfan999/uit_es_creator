@@ -12,7 +12,7 @@ module HomeHelper
   end
 
   def shift_now
-    time_now = Time.now.strftime("%k:%M")
+    time_now = Time.now.in_time_zone("Hanoi").strftime("%k:%M")
 
     if time_now > "15:30"
       "4"
