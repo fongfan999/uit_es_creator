@@ -28,6 +28,11 @@ class HomeController < ApplicationController
       # Load notifs
       @notifs_data = 
         MultiJson.load Rails.root.join('public', 'notifs_data.json')
+
+
+      # Strike the past exams
+      @date_range_to_yesterday = date_range_to_yesterday
+      @shift_now = shift_now
     end
   end
 

@@ -47,15 +47,21 @@
                 <tbody>
                   <% @result.each do |class_code, data| %>
                   <% student = data['students'][params[:student_id]] %>
-                  <tr class="<%= "grey lighten-1 grey-text" if should_disable?(data) %>" >
-                    <td title="Ngày thi"><%= data['date'] %></td>
-                    <td title="Thứ"><%= data['day'] %></td>
-                    <td title="Ca thi"><%= data['shift'] %></td>
-                    <td title="Môn thi"><%= data['name'] %></td>
-                    <td title="Số báo danh"><%= student['id_number'] %></td>
-                    <td title="Phòng thi"><%= "#{data['room']} (#{data['sum']})" %></td>
-                    <td title="Ghi chú"><%= student['note'] %></td>
-                  </tr>
+                    <tr class="<%= "grey lighten-1 grey-text" if should_disable?(@date_range_to_yesterday, @shift_now, data) %>" >
+                      <td title="Ngày thi"><%= data['date'] %></td>
+                      <td title="Thứ"><%= data['day'] %></td>
+                      <td class="tooltipped" data-delay="1" 
+                        data-tooltip="<%= shift_to_time(data['shift']) %>"
+                        data-position="right">
+                        <%= data['shift'] %>
+                      </td>
+                      <td title="Môn thi"><%= data['name'] %></td>
+                      <td title="Số báo danh"><%= student['id_number'] %></td>
+                      <td title="Phòng thi">
+                        <%= "#{data['room']} (#{data['sum']})" %>
+                      </td>
+                      <td title="Ghi chú"><%= student['note'] %></td>
+                    </tr>
                   <% end %>
                 </tbody>
               </table>
