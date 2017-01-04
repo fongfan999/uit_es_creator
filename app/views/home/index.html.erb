@@ -77,17 +77,17 @@
   </div>
 </div>
 
-<div class="container" data-turbolinks="false">
-  <div class="card">
-    <h5 class="card-panel teal lighten-1 white-text">Nhận xét, góp ý</h5>
-    <%= render 'application/facebook_comment',
-      full_path: uit_es_creator_url %>
-  </div>
-</div>
-
-<%= render 'application/facebook_comments_sdk' %>
-
 <% if @result.present? %>
+  <div class="container">
+    <div class="card">
+      <h5 class="card-panel teal lighten-1 white-text">Nhận xét, góp ý</h5>
+      <%= render 'application/facebook_comment',
+        full_path: uit_es_creator_url %>
+    </div>
+  </div>
+
+  <%= render 'application/facebook_comments_sdk' %>
+
   <div class="fixed-action-btn">
     <%= link_to show_notifs_path, class: "btn-floating btn-large red
       lighten-1 tooltipped waves-effect waves-light", method: :patch,
