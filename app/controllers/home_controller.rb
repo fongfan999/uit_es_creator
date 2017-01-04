@@ -5,7 +5,7 @@ class HomeController < ApplicationController
         params[:student_id].try(:dup) || session[:student_id].try(:dup)
 
       # Store student_id as session
-      session[:student_id] = student_id unless session[:student_id]
+      session[:student_id] = student_id
       # full_name will be the name or student ID
       @full_name = student_id.dup
 
