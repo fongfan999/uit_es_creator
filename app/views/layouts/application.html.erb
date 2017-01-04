@@ -22,7 +22,7 @@
     <div class="navbar-fixed">
       <nav class="teal lighten-1 z-depth-0">
         <div class="nav-wrapper container">
-          <%= link_to root_path, class: "brand-logo" do %>
+          <%= link_to root_path, class: "brand-logo", data: {turbolinks: false} do %>
             <%= image_tag 'logo.png', size: '36x36' %>
             <span class="hide-on-small-only">UIT ES Creator</span>
           <% end %>

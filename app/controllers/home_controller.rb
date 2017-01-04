@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   def index
     if params[:student_id].present? || session[:student_id].present?
-      student_id = params[:student_id].try(:dup) || 
-        session[:student_id].try(:dup)
+      student_id = 
+        params[:student_id].try(:dup) || session[:student_id].try(:dup)
 
       # Store student_id as session
       session[:student_id] = student_id unless session[:student_id]

@@ -16,7 +16,8 @@
 
         <%= form_tag root_path, method: :get do %>
           <div class="input-field">
-            <%= text_field_tag :student_id, session[:student_id],
+            <%= text_field_tag :student_id,
+              params[:student_id] || session[:student_id],
               autocomplete: "off", class: "center-align" %>
             <%= label_tag :student_id, "Mã số sinh viên",
               class: "#{'active' if session[:student_id]}" %>
@@ -56,7 +57,9 @@
                         data-position="right">
                         <%= data['shift'] %>
                       </td>
-                      <td title="Môn thi"><%= data['name'] %></td>
+                      <td class="tooltipped" data-delay="1" 
+                        data-tooltip="<%= class_code.sub(/_.*/, '') %>"
+                        data-position="right"><%= data['name'] %></td>
                       <td title="Số báo danh"><%= student['id_number'] %></td>
                       <td title="Phòng thi">
                         <%= "#{data['room']} (#{data['sum']})" %>
@@ -74,6 +77,16 @@
   </div>
 </div>
 
+<div class="container" data-turbolinks="false">
+  <div class="card">
+    <h5 class="card-panel teal lighten-1 white-text">Nhận xét, góp ý</h5>
+    <%= render 'application/facebook_comment',
+      full_path: uit_es_creator_url %>
+  </div>
+</div>
+
+<%= render 'application/facebook_comments_sdk' %>
+
 <% if @result.present? %>
   <div class="fixed-action-btn">
     <%= link_to show_notifs_path, class: "btn-floating btn-large red
@@ -85,14 +98,4 @@
   </div>
 
   <%= render(file: "home/show_notifs") %>
-
-  <div class="container">
-    <div class="card">
-      <h5 class="card-panel teal lighten-1 white-text">Nhận xét, góp ý</h5>
-      <%= render 'application/facebook_comment',
-        full_path: uit_es_creator_url %>
-    </div>
-  </div>
-
-  <%= render 'application/facebook_comments_sdk' %>
 <% end %>
