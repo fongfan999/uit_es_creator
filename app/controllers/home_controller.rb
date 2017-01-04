@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
   def index
-    if params[:student_id].present?
-      student_id = params[:student_id]
+    if params[:student_id].present? || session[:student_id].present?
+      student_id = params[:student_id].try(:dup) || 
+        session[:student_id].try(:dup)
+
+      # Store student_id as session
+      session[:student_id] = student_id unless session[:student_id]
       # full_name will be the name or student ID
       @full_name = student_id.dup
 
@@ -28,7 +32,6 @@ class HomeController < ApplicationController
       # Load notifs
       @notifs_data = 
         MultiJson.load Rails.root.join('public', 'notifs_data.json')
-
 
       # Strike the past exams
       @date_range_to_yesterday = date_range_to_yesterday
