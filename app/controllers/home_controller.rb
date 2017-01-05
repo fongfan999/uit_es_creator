@@ -36,6 +36,9 @@ class HomeController < ApplicationController
       # Strike the past exams
       @date_range_to_yesterday = date_range_to_yesterday
       @shift_now = shift_now
+
+      # Shift to time
+      @shifts = shifts
     end
   end
 

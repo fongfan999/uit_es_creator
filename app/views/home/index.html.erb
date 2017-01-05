@@ -53,7 +53,7 @@
                       <td title="Ngày thi"><%= data['date'] %></td>
                       <td title="Thứ"><%= data['day'] %></td>
                       <td class="tooltipped" data-delay="1" 
-                        data-tooltip="<%= shift_to_time(data['shift']) %>"
+                        data-tooltip="<%= @shifts[:"#{data['shift']}"] %>"
                         data-position="right">
                         <%= data['shift'] %>
                       </td>

@@ -12,7 +12,9 @@ class ApplicationController < ActionController::Base
   def shift_now
     time_now = Time.now.in_time_zone("Hanoi").strftime("%k:%M")
 
-    if time_now > "15:30"
+    if time_now > "17:00"
+      "5"
+    elsif time_now > "15:30"
       "4"
     elsif time_now > "13:30"
       "3"
@@ -21,5 +23,9 @@ class ApplicationController < ActionController::Base
     else
       "1"
     end
+  end
+
+  def shifts
+    { "1": "7:30", "2": "9:30", "3": "13:30", "4": "15:30" }
   end
 end
