@@ -24,7 +24,7 @@ class HomeController < ApplicationController
           data
         end
       }.compact.sort_by do |class_code, data|
-        [ data['date'].last(4), data['date'], data['day'] ]
+        [ data['date'].last(4), data['date'], data['shift'] ]
       end
 
       # Get all class codes
