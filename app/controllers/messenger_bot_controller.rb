@@ -1,9 +1,11 @@
 class MessengerBotController < ActionController::Base
   def message(event, sender)
-    profile = sender.get_profile(field)
-    # default field [:locale, :timezone, :gender, :first_name, :last_name, :profile_pic]
-
-    sender.reply({ text: "Hi #{profile.first_name}, your message is #{event['message']['text']}" })
+    profile = sender.get_profile(:first_name)
+    sender.reply({ text: "Hi #{profile}, How are you doing today. Please be patient!" })
+  
+    @links = Accesstrade.generate_product_link(event['message']['text'])
+    sender.reply({ text: "Short link: #{@links['short_link']}" })
+    sender.reply({ text: "Product link: #{@links['product_link']}" })
   end
 
   def delivery(event, sender)
