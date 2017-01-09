@@ -1,7 +1,7 @@
 class MessengerBotController < ActionController::Base
   def message(event, sender)
-    profile = sender.get_profile(:first_name)
-    sender.reply({ text: "Hi #{profile}, How are you doing today. Please be patient!" })
+    # profile = sender.get_profile(:first_name)
+    sender.reply({ text: "How are you doing today. Please be patient!" })
   
     @links = Accesstrade.generate_product_link(event['message']['text'])
     sender.reply({ text: "Short link: #{@links['short_link']}" })
