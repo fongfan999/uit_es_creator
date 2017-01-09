@@ -3,7 +3,7 @@ require "httparty"
 class Accesstrade
   include HTTParty
 
-  def self.generate_product_link(origin_link)
+  def self.generate_short_link(origin_link)
     # Get link and parse to json
     JSON.parse (
       post('http://api.accesstrade.vn/me/product_links', {
@@ -12,7 +12,7 @@ class Accesstrade
           url: origin_link,
           utm_source: "facebook"
         }
-      }).body
+      }).body['short_link']
     )
   end
 end
