@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      get 'daa/datasource'
+      get 'daa/uit_es_creator'
     end
   end
 

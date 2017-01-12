@@ -8,8 +8,7 @@ class Accesstrade
     JSON.parse(
       post('http://api.accesstrade.vn/me/product_links', {
         body: {
-          # access_key: ENV['AT_ACCESS_KEY'],
-          access_key: "BDWnWb-g6SJ534r-jSwcMP_mvhcznH_0",
+          access_key: ENV['AT_ACCESS_KEY']
           url: origin_link,
           utm_source: "facebook"
         }

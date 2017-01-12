@@ -12,6 +12,7 @@ class HomeController < ApplicationController
       # Load datasource
       @datasource = MultiJson.load Rails.root.join('public', 'daa_data.json')
 
+      @class_codes = []
       # Get the classes that belong to this student
       @result = @datasource.map { |data|
         if data.last['students'].include?(student_id)
@@ -20,15 +21,28 @@ class HomeController < ApplicationController
             @full_name = data.last['students'][student_id]['student_name']
           end
 
+          # Get all class codes for displaying relevant notifs
+          @class_codes << data.first.sub(/_.+/, '')
+
+
           # return mapping data
-          data
+          {
+            class_code: data.first.sub(/_.+/, ''),
+            name: data.last['name'],
+            date: data.last['date'],
+            day: data.last['day'],
+            shift: data.last['shift'],
+            room: data.last['room'],
+            sum: data.last['sum'],
+            id_number: data.last['students'][student_id]['id_number'],
+            note: data.last['students'][student_id]['note']
+          }
+
         end
-      }.compact.sort_by do |class_code, data|
-        [ data['date'].last(4), data['date'], data['shift'] ]
+      }.compact.sort_by do |data|
+        [ data[:date].last(4), data[:date], data[:shift] ]
       end
 
-      # Get all class codes
-      @class_codes = @result.map { |code| code.first.sub(/_.+/, '') }
       # Load notifs
       @notifs_data = 
         MultiJson.load Rails.root.join('public', 'notifs_data.json')
