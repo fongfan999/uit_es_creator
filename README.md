@@ -6,6 +6,11 @@
 2. Enter your Student ID
 3. Enjoy!
 
+# API
+``
+foxfizz.me/uit_es_creator.json?student_id={STUDENT_ID}
+``
+
 # Contributing
 I encourage you to contribute to **UIT ES Creator**! Please follow the instruction below:
 
