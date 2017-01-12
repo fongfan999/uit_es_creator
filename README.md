@@ -8,7 +8,7 @@
 
 # API
 ``
-foxfizz.me/uit_es_creator.json?student_id={STUDENT_ID}
+http://www.foxfizz.me/api/v1/daa/uit_es_creator.json?student_id={STUDENT_ID}
 ``
 
 # Contributing
