@@ -7,8 +7,20 @@
 3. Enjoy!
 
 # API
+The HTTP API takes GET requests in the following schema:
 ``
-http://www.foxfizz.me/api/v1/daa/uit_es_creator.json?student_id={STUDENT_ID}
+http://www.foxfizz.me/api/v1/daa/uit_es_creator.{FORMAT}?student_id={STUDENT_ID}
+``
+
+### Examples
+**JSON**
+``
+http://www.foxfizz.me/api/v1/daa/uit_es_creator.json?student_id=12345678
+``
+
+**XML**
+``
+http://www.foxfizz.me/api/v1/daa/uit_es_creator.xml?student_id=12345678
 ``
 
 # Contributing

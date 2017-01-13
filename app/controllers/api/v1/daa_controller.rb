@@ -33,6 +33,9 @@ class Api::V1::DaaController < Api::V1::ApplicationController
       h[:es] = result
     end
 
-    render json: f_result
+    respond_to do |format|
+      format.json { render json: f_result }
+      format.xml { render xml: f_result }
+    end
   end
 end

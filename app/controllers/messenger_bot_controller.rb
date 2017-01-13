@@ -4,7 +4,6 @@ class MessengerBotController < ActionController::Base
 
     sender.reply({ text: "How are you doing today? Please be patient!" })
     sender.reply({ text: "Short link: #{Accesstrade.generate_short_link(origin_link)}" })
-    sender.reply({ text: "Product link: https://pub.accesstrade.vn/deep_link/4505309943460540043?url=#{origin_link}&utm_source=facebook" })
   end
 
   def delivery(event, sender)
