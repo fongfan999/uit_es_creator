@@ -17,6 +17,8 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
+  // Preloader icon
+  $(".se-pre-con").fadeOut("fast");
 
   $('.persistent').click(function(e) {
     e.preventDefault();
@@ -41,6 +43,7 @@ $(document).on('turbolinks:load', function() {
     }
   });
 
+  // Handdle showing notifications
   $('#show-notifs').click(function() {
     $('.modal').modal({
       ready: function() {
@@ -52,6 +55,12 @@ $(document).on('turbolinks:load', function() {
     $('#show-notifs-content').modal('open');
   });
 
-  $(".se-pre-con").fadeOut("fast");
+  // Submit when student id length is 8
+  $('#student-id').bind('change keyup', function() {
+    if ($(this).val().length === 8) {
+      $(this).closest('form').submit();
+    }
+  });
+
 });
 

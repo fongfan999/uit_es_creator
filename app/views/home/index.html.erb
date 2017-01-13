@@ -18,14 +18,15 @@
           <div class="input-field">
             <%= text_field_tag :student_id,
               params[:student_id] || session[:student_id],
-              autocomplete: "off", class: "center-align" %>
+              autocomplete: "off", class: "center-align",
+              id: "student-id" %>
             <%= label_tag :student_id, "Mã số sinh viên",
               class: "#{'active' if session[:student_id]}" %>
           </div>
         <% end %>
 
         <% if @result.blank? && session[:student_id] %>
-          <h6 class="center-align">Hệ thống không thể tìm thấy MSSV này :&#40;</h6>
+          <h6 class="center-align red-text">Hệ thống không thể tìm thấy MSSV này :&#40;</h6>
         <% elsif @result.present? %>
           <div id="schedule">
             <h4 class="center-align">
