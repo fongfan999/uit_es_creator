@@ -8,6 +8,7 @@
 
 # API
 The HTTP API takes GET requests in the following schema:
+
 ``
 http://www.foxfizz.me/api/v1/daa/uit_es_creator.{FORMAT}?student_id={STUDENT_ID}
 ``
