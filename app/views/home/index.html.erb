@@ -80,7 +80,23 @@
 <% if @result.present? %>
   <div class="container">
     <div class="card">
-      <h5 class="card-panel teal lighten-1 white-text">Nhận xét, góp ý</h5>
+      <h5 class="card-panel teal lighten-1 white-text">
+        Nhận xét, góp ý
+        
+        <!-- Github Star -->
+        <div class="right">
+          <a class="github-button"
+          href="https://github.com/fongfan999/uit_es_creator"
+          data-icon="octicon-star"
+          data-style="mega"
+          data-count-href="/fongfan999/uit_es_creator/stargazers"
+          data-count-api="/repos/fongfan999/uit_es_creator#stargazers_count"
+          data-count-aria-label="# stargazers on GitHub"
+          aria-label="Star fongfan999/uit_es_creator on GitHub">Star</a>
+        </div>
+      </h5>
+
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
       <%= render 'application/facebook_comment',
         full_path: uit_es_creator_url %>
     </div>
