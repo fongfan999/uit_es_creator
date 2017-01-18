@@ -15,9 +15,28 @@
   </head>
 
   <body>
-    <div class="se-pre-con">
-      <%= render "shared/circle_preloader" %>
-    </div>
+    <% unless session[:student_id] %>
+      <div id="countdown">
+        <a href="#" class="close-countdown"><i class="material-icons">close</i></a>
+        <h3>Hệ thống sẽ sớm đóng lại!</h3>
+        <h5>Cảm ơn các bạn đã tin tưởng và sử dụng hệ thống :&#41;.</h5>
+
+        <ul>
+          <li class="days chart" data-percent="0"><span>00</span>Ngày</li>
+          <li class="hours chart" data-percent="0"><span>00</span>Giờ</li>
+          <li class="minutes chart" data-percent="0"><span>00</span>Phút</li>
+          <li class="seconds chart" data-percent="0"><span>00</span>Giây</li>
+        </ul>
+        
+        <h6>CHÚC MỪNG NĂM MỚI</h6>
+
+        <p>
+          <span>#uit_es_creator</span>
+          <span>#foxfizz</span>
+          <span>#fongfan999</span>
+        </p>
+      </div>
+    <% end %>
 
     <div class="navbar-fixed">
       <nav class="teal lighten-1 z-depth-0">

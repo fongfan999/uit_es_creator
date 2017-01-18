@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'messenger-bot', '~> 1.0', '>= 1.0.3.2'
 # Material design
 gem 'rails-assets-materialize', source: 'https://rails-assets.org'
+# Easy Pie
+gem 'rails-assets-easypie', source: 'https://rails-assets.org'
 # Scraper DAA
 gem 'wombat', '~> 2.5', '>= 2.5.1', require: false
 # AccessTrade API
