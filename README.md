@@ -2,7 +2,7 @@
 **UIT ES Creator** is a web-application that can create instantly the exam schedule for **UITers**. This creator helps you save your time. Let's spend your time for going on a date :&#41;.
 
 # How to use
-1. Visit  [this link](http://www.foxfizz.me/uit_es_creator)
+1. Visit  [this link](http://uesc.foxfizz.com/)
 2. Enter your Student ID
 3. Enjoy!
 
@@ -10,18 +10,18 @@
 The HTTP API takes GET requests in the following schema:
 
 ``
-http://www.foxfizz.me/api/v1/daa/uit_es_creator.{FORMAT}?student_id={STUDENT_ID}
+http://uesc.foxfizz.com/api/v1/daa/uesc.{FORMAT}?student_id={STUDENT_ID}
 ``
 
 ### Examples
 **JSON**
 ``
-http://www.foxfizz.me/api/v1/daa/uit_es_creator.json?student_id=12345678
+http://uesc.foxfizz.com/api/v1/daa/uesc.json?student_id=12345678
 ``
 
 **XML**
 ``
-http://www.foxfizz.me/api/v1/daa/uit_es_creator.xml?student_id=12345678
+http://uesc.foxfizz.com/api/v1/daa/uesc.xml?student_id=12345678
 ``
 
 # Contributing

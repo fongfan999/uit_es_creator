@@ -1,5 +1,5 @@
 class Api::V1::DaaController < Api::V1::ApplicationController
-  def uit_es_creator
+  def uesc
     file_path = Rails.root.join('public', 'daa_data.json')
     @datasource = MultiJson.load(file_path)
 

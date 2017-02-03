@@ -1,6 +1,6 @@
 <div id="banner" class="card-panel teal lighten-1 white-text z-depth-0">
   <h5 class="right-align container">
-    Hệ thống tạo lịch thi dành cho sinh viên UIT
+    Hệ thống <strong>tạo lịch thi</strong> dành cho sinh viên UIT
   </h5>
 </div>
 
@@ -9,7 +9,7 @@
     <div id="us-creator" class="col s12 m12 l12"> 
       <div  class="card-panel">
         <div class="right">
-          <a id="toggle-width" class="hide-on-med-and-down persistent teal-text lighten-1">
+          <a id="toggle-width" class="hide-on-med-and-downd persistent teal-text lighten-1">
             <i class="small material-icons">keyboard_arrow_right</i>
           </a>
         </div>
@@ -77,8 +77,8 @@
   </div>
 </div>
 
-<% if @result.present? %>
-  <div class="container">
+<div id="comments" class="modal">
+  <div class="modal-content">
     <div class="card">
       <h5 class="card-panel teal lighten-1 white-text">
         Nhận xét, góp ý
@@ -96,20 +96,19 @@
         </div>
       </h5>
 
-      <script async defer src="https://buttons.github.io/buttons.js"></script>
-      <%= render 'application/facebook_comment',
-        full_path: uit_es_creator_url %>
+      <%= render 'shared/facebook_comments', full_path: root_url %>
     </div>
   </div>
-  <%= render 'application/facebook_comments_sdk' %>
-
-  <div class="fixed-action-btn">
-    <%= link_to show_notifs_path, class: "btn-floating btn-large red
-      lighten-1 tooltipped waves-effect waves-light", method: :patch,
-      remote: true, id: "show-notifs",
-      data: { tooltip: "Xem thông báo", delay: 100, position: "left" } do %>
-      <i class="large material-icons">notifications_active</i>
-    <% end %>
+  <div class="modal-footer">
+    <a href="#" class=" modal-action modal-close waves-effect waves-light btn-flat persistent">Đóng</a>
   </div>
-  <%= render(file: "home/show_notifs") %>
-<% end %>
+</div>
+
+<div class="fixed-action-btn">
+  <a href="#comments" class="btn-floating btn-large teal waves-effect waves-light">
+    <i class="large material-icons">comment</i>
+  </a>
+</div>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+

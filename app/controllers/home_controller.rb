@@ -43,10 +43,6 @@ class HomeController < ApplicationController
         [ data[:date].last(4), data[:date], data[:shift] ]
       end
 
-      # Load notifs
-      @notifs_data = 
-        MultiJson.load Rails.root.join('public', 'notifs_data.json')
-
       # Strike the past exams
       @date_range_to_yesterday = date_range_to_yesterday
       @shift_now = shift_now
@@ -54,13 +50,5 @@ class HomeController < ApplicationController
       # Shift to time
       @shifts = shifts
     end
-  end
-
-  def show_notifs
-    head :ok
-  end
-
-  def uit_es_creator
-    redirect_to root_path
   end
 end

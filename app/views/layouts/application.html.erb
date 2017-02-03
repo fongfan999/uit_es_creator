@@ -5,7 +5,7 @@
     <%= favicon_link_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="https://www.uit.edu.vn/sites/vi/files/images/Logos/Logo_UIT_In.jpg" />
-    <meta property="fb:app_id" content="1444686258898113" />
+    <meta property="fb:app_id" content="1340690532621760" />
 
     <%= csrf_meta_tags %>
 
@@ -18,8 +18,8 @@
     <% unless session[:student_id] %>
       <div id="countdown">
         <a href="#" class="close-countdown"><i class="material-icons">close</i></a>
-        <h3>Hệ thống sẽ sớm đóng lại!</h3>
-        <h5>Cảm ơn các bạn đã tin tưởng và sử dụng hệ thống :&#41;.</h5>
+        <h4>Hệ thống có thể sẽ được cập nhật vào 01/03/2017.</h4>
+        <h6>Cảm ơn các bạn đã tin tưởng và sử dụng hệ thống :&#41;.</h6>
 
         <ul>
           <li class="days chart" data-percent="0"><span>00</span>Ngày</li>
@@ -28,12 +28,12 @@
           <li class="seconds chart" data-percent="0"><span>00</span>Giây</li>
         </ul>
         
-        <h6>CHÚC MỪNG NĂM MỚI</h6>
+        <h5>CHÚC MỪNG NĂM MỚI</h5>
 
         <p>
-          <span>#uit_es_creator</span>
           <span>#foxfizz</span>
-          <span>#fongfan999</span>
+          <span>#uesc</span>
+          <span>#uit_es_creator</span>
         </p>
       </div>
     <% end %>
@@ -41,8 +41,8 @@
     <div class="navbar-fixed">
       <nav class="teal lighten-1 z-depth-0">
         <div class="nav-wrapper container">
-          <%= link_to root_path, class: "brand-logo", data: {turbolinks: false} do %>
-            <%= image_tag 'logo.png', size: '36x36' %>
+          <%= link_to root_path, class: "brand-logo" do %>
+            <i class="material-icons">event_note</i>
             <span class="hide-on-small-only">UIT ES Creator</span>
           <% end %>
 
@@ -55,7 +55,7 @@
               
             </li>
             <li>
-              <%= link_to "https://fb.com/sharer.php?u=http://www.foxfizz.me/uit_es_creator",
+              <%= link_to "https://fb.com/sharer.php?u=http://uesc.foxfizz.com/",
                 onclick: "window.open(this.href, true, 'height=500,width=500')",
                 class: "persistent tooltipped", data: { tooltip: "Chia sẻ",
                 delay: 100 } do %>
@@ -74,7 +74,7 @@
     <footer class="page-footer teal lighten-1">
       <div class="footer-copyright">
         <div class="container">
-          © 2016 FoxFizz, Inc
+          © 2017 FoxFizz, Inc
           <a class="grey-text text-lighten-4 right" target="blank" href="https://github.com/fongfan999/uit_es_creator">GitHub</a>
         </div>
       </div>

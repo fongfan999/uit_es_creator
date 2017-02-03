@@ -22,13 +22,7 @@ $(document).on('turbolinks:load', function() {
     e.preventDefault();
   });
 
-  $(document).scroll(function() {
-    if ($(window).scrollTop() == 0) {
-      $('nav.teal').addClass('z-depth-0');
-    } else {
-      $('nav.teal').removeClass('z-depth-0');
-    }
-  });
+  $('.modal').modal();
 
   $('#toggle-width').click(function() {
     // 70%
@@ -36,21 +30,9 @@ $(document).on('turbolinks:load', function() {
       $('#content').css('width', '100%');
       $('#toggle-width i').text('keyboard_arrow_left');
     } else {
-      $('#content').css('width', '70%');
+      $('#content').css('width', '80%');
       $('#toggle-width i').text('keyboard_arrow_right');
     }
-  });
-
-  // Handdle showing notifications
-  $('#show-notifs').click(function() {
-    $('.modal').modal({
-      ready: function() {
-        $('ul.tabs').tabs();
-      }
-    });
-
-    $('.tooltipped').tooltip('remove');
-    $('#show-notifs-content').modal('open');
   });
 
   // Submit when student id length is 8
@@ -67,7 +49,7 @@ $(document).on('turbolinks:load', function() {
   });
 
   if ($('#countdown').length > 0) {
-    var date = "27 January 2017 23:59:59";
+    var date = "1 March 2017 23:59:59";
 
     setInterval(function(){
       function getTimeNow(){
@@ -95,7 +77,7 @@ $(document).on('turbolinks:load', function() {
       seconds = Math.round(seconds);
 
       $('.days span').text(days);
-      $('.days').data('easyPieChart').update( Math.floor(days * 100 / 10) );
+      $('.days').data('easyPieChart').update( Math.floor(days * 100 / 30) );
 
       $('.hours span').text(hours);
       $('.hours').data('easyPieChart').update( Math.floor(hours * 100 / 24 ) );
@@ -103,24 +85,23 @@ $(document).on('turbolinks:load', function() {
       $('.minutes span').text(minutes);
       $('.minutes').data('easyPieChart').update(
         Math.floor(minutes * 100 / 60 )
-      );
+        );
 
       $('.seconds span').text(seconds);
       $('.seconds').data('easyPieChart').update(
         Math.floor(seconds * 100 / 60)
-      );
+        );
     }, 1000);
+
+    $('.chart').easyPieChart({
+      scaleColor: false,
+      trackColor: 'rgba(255,255,255,0.3)',
+      barColor: '#E7F7F5',
+      lineWidth: 6,
+      lineCap: 'butt',
+      size: 150
+    });
   }
 });
 
-$(function() {
-  $('.chart').easyPieChart({
-    scaleColor: false,
-    trackColor: 'rgba(255,255,255,0.3)',
-    barColor: '#E7F7F5',
-    lineWidth: 6,
-    lineCap: 'butt',
-    size: 150
-  });
-})
 

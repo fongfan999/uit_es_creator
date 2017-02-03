@@ -6,9 +6,14 @@ body {
   overflow-x: hidden;
 }
 
-.brand-logo {
-  img {
-    margin-top: 10px;
+nav .brand-logo {
+  i {
+    margin-right: 0 !important;
+    font-size: 36px;
+  }
+
+  span {
+    margin-left: 15px;
   }
 }
 
@@ -152,7 +157,7 @@ body {
     font-family: "Roboto";
   }
 
-  h5 {
+  h6 {
     padding-bottom: 50px;
   }
 
