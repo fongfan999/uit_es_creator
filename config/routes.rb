@@ -6,6 +6,4 @@ Rails.application.routes.draw do
       get 'daa/uesc'
     end
   end
-
-  mount Messenger::Bot::Space => "/webhook"
 end
