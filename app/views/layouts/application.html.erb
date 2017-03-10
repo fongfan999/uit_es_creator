@@ -18,29 +18,6 @@
   </head>
 
   <body>
-    <% unless session[:student_id] %>
-      <div id="countdown">
-        <a href="#" class="close-countdown"><i class="material-icons">close</i></a>
-        <h4>Hệ thống có thể sẽ được cập nhật vào 01/03/2017.</h4>
-        <h6>Cảm ơn các bạn đã tin tưởng và sử dụng hệ thống :&#41;.</h6>
-
-        <ul>
-          <li class="days chart" data-percent="0"><span>00</span>Ngày</li>
-          <li class="hours chart" data-percent="0"><span>00</span>Giờ</li>
-          <li class="minutes chart" data-percent="0"><span>00</span>Phút</li>
-          <li class="seconds chart" data-percent="0"><span>00</span>Giây</li>
-        </ul>
-        
-        <h5>CHÚC MỪNG NĂM MỚI</h5>
-
-        <p>
-          <span>#foxfizz</span>
-          <span>#uesc</span>
-          <span>#uit_es_creator</span>
-        </p>
-      </div>
-    <% end %>
-
     <div class="navbar-fixed">
       <nav class="teal lighten-1 z-depth-0">
         <div class="nav-wrapper container">
@@ -68,6 +45,12 @@
           </ul>
         </div>
       </nav>  
+    </div>
+
+    <div id="banner" class="card-panel teal lighten-1 white-text z-depth-0">
+      <h5 class="right-align container">
+        Hệ thống <strong>tạo lịch thi</strong> dành cho sinh viên UIT
+      </h5>
     </div>
 
     <div id="main">

@@ -42,6 +42,11 @@ nav .brand-logo {
 }
 
 #us-creator {
+  h4 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
   form {
     max-width: 300px;
     margin: 0 auto;
@@ -88,56 +93,6 @@ nav .brand-logo {
   }
 }
 
-#show-notifs-content {
-  .modal-content {
-    padding: 0;
-  }
-}
-
-#notifs {
-  & > .card {
-    padding-bottom: 3px;
-  }
-
-  .title {
-    color: rgb(238, 110, 115);
-    text-align: center;
-    padding: 24px 24px 0;
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  .tabs {
-    overflow: hidden;
-  }
-
-  .collapsible {
-    .collapsible-header {
-      .submitted {
-        font-style: italic;
-      }
-    }
-    .collapsible-header.active {
-      background-color: #26a69a;
-      color: #fff;
-    }
-
-    .collapsible-body {
-      background-color: rgba(255, 255, 255, .6);
-
-      .origin-notif {
-        margin-right: 15px;
-        margin-top: 15px;
-      }
-    }
-  }
-
-  #general-notifs, #off-class-notifs {
-    padding-top: 15px;
-  }
-}
-
 #countdown {
   background: #26a69a;
   position: relative;
@@ -148,7 +103,6 @@ nav .brand-logo {
   font-weight: 100;
   letter-spacing: 1px;
   line-height: 1;
-
 
   position: fixed;
   left: 0;
@@ -192,7 +146,7 @@ nav .brand-logo {
     margin-bottom: 4em;
   }
 
-  .chart{
+  .chart {
     display: inline-block;
     width: 150px;
     height: 150px;
@@ -203,14 +157,14 @@ nav .brand-logo {
     padding-top: 40px;
     font-weight: 500;
 
-    span{
+    span {
       display: block;
       font-size: 3em;
       font-weight: normal;
       margin-bottom: 20px;
     }
 
-    canvas{
+    canvas {
       position: absolute;
       left: 0;
       top: 0;

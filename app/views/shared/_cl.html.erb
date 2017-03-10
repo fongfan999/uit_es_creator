@@ -1,0 +1,17 @@
+<tr class="<%= "grey lighten-1 grey-text" if Time.zone.now > Time.parse("#{@shifts[cl['shift'].to_s.to_sym]}, #{cl['date']}") %>">
+  <td title="Ngày thi"><%= cl['date'] %></td>
+  <td title="Thứ"><%= cl['day'] %></td>
+  <td class="tooltipped" data-delay="1" 
+    data-tooltip="<%= @shifts[cl['shift'].to_s.to_sym] %>"
+    data-position="right">
+    <%= cl['shift'] %>
+  </td>
+  <td class="tooltipped" data-delay="1" 
+    data-tooltip="<%= cl['code'] %>"
+    data-position="right"><%= cl['name'] %></td>
+  <td title="Số báo danh"><%= cl['id_number'] %></td>
+  <td title="Phòng thi">
+    <%= "#{cl['room']} / (#{cl['sum']})" %>
+  </td>
+  <td title="Ghi chú"><%= cl['note'] %></td>
+</tr>

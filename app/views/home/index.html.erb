@@ -1,9 +1,3 @@
-<div id="banner" class="card-panel teal lighten-1 white-text z-depth-0">
-  <h5 class="right-align container">
-    Hệ thống <strong>tạo lịch thi</strong> dành cho sinh viên UIT
-  </h5>
-</div>
-
 <div id="content" class="content-with-preloader container">
   <div class="row">
     <div id="us-creator" class="col s12 m12 l12"> 
@@ -25,54 +19,42 @@
           </div>
         <% end %>
 
-        <% if @result.blank? && session[:student_id] %>
-          <h6 class="center-align red-text">Hệ thống không thể tìm thấy MSSV này :&#40;</h6>
-        <% elsif @result.present? %>
-          <div id="schedule">
-            <h4 class="center-align">
-              Lịch thi của <%= @full_name %>
-            </h4>
-            
-            <div style="overflow-x: auto;">
-              <table class="striped centered">
-                <thead>
-                  <tr class="teal lighten-1 white-text">
-                    <th>Ngày thi</th>
-                    <th>Thứ</th>
-                    <th>Ca thi</th>
-                    <th>Môn thi</th>
-                    <th>SBD</th>
-                    <th>Phòng</th>
-                    <th>Ghi chú</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <% @result.each do |data| %>
-                    <tr class="<%= "grey lighten-1 grey-text" if should_disable?(@date_range_to_yesterday, @shift_now, data) %>" >
-                      <td title="Ngày thi"><%= data[:date] %></td>
-                      <td title="Thứ"><%= data[:day] %></td>
-                      <td class="tooltipped" data-delay="1" 
-                        data-tooltip="<%= @shifts[:"#{data[:shift]}"] %>"
-                        data-position="right">
-                        <%= data[:shift] %>
-                      </td>
-                      <td class="tooltipped" data-delay="1" 
-                        data-tooltip="<%= data[:class_code] %>"
-                        data-position="right"><%= data[:name] %></td>
-                      <td title="Số báo danh"><%= data[:id_number] %></td>
-                      <td title="Phòng thi">
-                        <%= "#{data[:room]} (#{data[:sum]})" %>
-                      </td>
-                      <td title="Ghi chú"><%= data[:note] %></td>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
-            </div>
-          </div>
+        <% if @classes.blank? && session[:student_id] %>
+          <h6 class="center-align red-text">
+            Hệ thống không thể tìm thấy MSSV này :&#40;
+          </h6>
         <% end %>
       </div>
+
+      <% if @classes.present? %>
+        <h4 class="center-align">Lịch thi của <%= @student['name'] %></h4>
+
+        <div style="overflow-x: auto;">
+          <table class="striped centered">
+            <thead>
+              <tr class="teal lighten-1 white-text">
+                <th>Ngày thi</th>
+                <th>Thứ</th>
+                <th>Ca thi</th>
+                <th>Môn thi</th>
+                <th>SBD</th>
+                <th>Phòng</th>
+                <th>Ghi chú</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <%= render partial: "shared/cl", collection: @classes, as: :cl %>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="center-align">
+          <br>
+          Dữ liệu được cập nhật lần cuối vào: 
+          <span class="teal-text">07/03/2017 - 15:16</span>
+        </p>
+      <% end %>
     </div>
   </div>
 </div>
@@ -96,7 +78,8 @@
         </div>
       </h5>
 
-      <%= render 'shared/facebook_comments', full_path: root_url %>
+      <%= render 'shared/facebook_comments',
+        full_path: 'http://www.foxfizz.me/uit_es_creator' %>
     </div>
   </div>
   <div class="modal-footer">
@@ -111,4 +94,3 @@
 </div>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-

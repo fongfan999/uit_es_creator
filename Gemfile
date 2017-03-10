@@ -35,15 +35,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Core gem
-gem 'messenger-bot', '~> 1.0', '>= 1.0.3.2'
 # Material design
 gem 'rails-assets-materialize', source: 'https://rails-assets.org'
 # Easy Pie
 gem 'rails-assets-easypie', source: 'https://rails-assets.org'
-# Scraper DAA
-gem 'wombat', '~> 2.5', '>= 2.5.1', require: false
-# AccessTrade API
-gem 'httparty', '~> 0.14.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
