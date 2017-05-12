@@ -1,7 +1,7 @@
 class Tracker < ApplicationRecord
   validates :student_id, uniqueness: true
 
-  scope :recent, -> { order(updated_at: :desc).limit(10) }
+  scope :recent, -> { order(updated_at: :desc).limit(15) }
 
   def self.track(student_id)
     tracker = Tracker.find_or_initialize_by(student_id: student_id)
