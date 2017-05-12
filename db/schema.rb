@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512013753) do
+ActiveRecord::Schema.define(version: 20170512023345) do
+
+  create_table "exam_schedulers", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "klass_id"
+    t.index ["klass_id"], name: "index_exam_schedulers_on_klass_id"
+    t.index ["student_id"], name: "index_exam_schedulers_on_student_id"
+  end
+
+  create_table "klasses", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.string   "date"
+    t.string   "day"
+    t.integer  "shift"
+    t.string   "room"
+    t.integer  "sum"
+    t.string   "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string   "student_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_students_on_student_id"
+  end
 
   create_table "trackers", force: :cascade do |t|
     t.string   "student_id"
