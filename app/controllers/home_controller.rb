@@ -5,6 +5,8 @@ class HomeController < ApplicationController
     
     if @student = @students[session[:student_id]]
       @classes = @student['class_ids']
+
+      Tracker.track(session[:student_id])
     end
     
     # Shift to time
