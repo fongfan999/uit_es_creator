@@ -39,7 +39,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'rails-assets-materialize', source: 'https://rails-assets.org'
 # Easy Pie
 gem 'rails-assets-easypie', source: 'https://rails-assets.org'
-gem 'httparty', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
