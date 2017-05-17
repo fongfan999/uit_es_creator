@@ -11,9 +11,7 @@ namespace :es do
       name = student.last['name']
 
       s = Student.create(student_id: student_id, name: name)
-      klass_ids = []
       student.last['class_ids'].each do |klass|
-        # klass_ids << Klass.find_or_create_by(klass.except('id_number')).id
         ExamScheduler.create(
           student: s,
           klass: Klass.find_or_create_by(klass.except('id_number')),
@@ -21,9 +19,6 @@ namespace :es do
         )
 
       end
-      #
-      # s.klass_ids = klass_ids
-      # s.save
     end
   end
 end

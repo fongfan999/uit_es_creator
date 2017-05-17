@@ -3,8 +3,8 @@ class CreateKlasses < ActiveRecord::Migration[5.0]
     create_table :klasses do |t|
       t.string :name
       t.string :code
-      t.string :date
-      t.string :day
+      t.date :date
+      t.day :day
       t.integer :shift
       t.string :room
       t.integer :sum
