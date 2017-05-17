@@ -17,8 +17,8 @@ class Student < ApplicationRecord
 
   private
     def klasses_with_id_number
-      ExamScheduler.includes(:klass)
-        .where('student_id = ?', self.id).map do |es|
+      ExamScheduler.includes(:klass).where('student_id = ?', self.id)
+        .order('klasses.date ASC, klasses.shift ASC').map do |es|
         es.klass.attributes.except('created_at', 'updated_at')
           .merge({id_number: es.id_number})
       end
