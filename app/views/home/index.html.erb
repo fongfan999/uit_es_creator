@@ -58,7 +58,7 @@
 
 <div class="container">
   <div class="card-panel">
-    <h5>Hoạt động gần đây</h5> <br/>
+    <h5>Hoạt động gần đây (<%= Tracker.size %>)</h5> <br/>
     <%= render Tracker.recent %>
   </div>
 </div>
@@ -68,7 +68,7 @@
     <div class="card">
       <h5 class="card-panel teal lighten-1 white-text">
         Nhận xét, góp ý
-        
+
         <!-- Github Star -->
         <div class="right">
           <a class="github-button" 
