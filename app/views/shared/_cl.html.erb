@@ -1,4 +1,4 @@
-<tr class="<%= "grey lighten-1 grey-text" if Time.zone.now > Time.zone.parse("#{@shifts[cl['shift'].to_s.to_sym]}, #{cl['date']}") %>">
+<tr class="<%= 'grey lighten-1 grey-text' if Time.zone.now > Time.zone.parse("#{@shifts[cl['shift'].to_s.to_sym]}, #{cl['date']}") %>">
   <td title="Ngày thi"><%= cl['date'] %></td>
   <td title="Thứ"><%= cl['day'] %></td>
   <td class="tooltipped" data-delay="1" 
