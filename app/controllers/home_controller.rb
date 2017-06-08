@@ -3,7 +3,8 @@ class HomeController < ApplicationController
 
   def index
     session[:student_id] = params[:student_id] || session[:student_id]
-    @student = Student.find_student(session[:student_id].try(:gsub!, /\D+/, ''))
+    session[:student_id].gsub!(/\D+/, '') if session[:student_id].present?
+    @student = Student.find_student(session[:student_id])
 
     unless @student.empty?
       @classes = @student['es']
