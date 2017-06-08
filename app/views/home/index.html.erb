@@ -8,6 +8,11 @@
           </a>
         </div>
 
+        <% if @classes.present? %>
+          <%= render "shared/countdown", next_es: next_es_time,
+            countdown_title: next_es(@classes)['name'] %>
+        <% end %>
+
         <%= form_tag root_path, method: :get do %>
           <div class="input-field">
             <%= text_field_tag :student_id,

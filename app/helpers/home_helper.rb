@@ -4,4 +4,20 @@ module HomeHelper
       (Date.today.strftime("%d-%m-%Y") == data[:date] && 
         shift_now > data[:shift])
   end
+
+  def next_es_time
+    Time.zone.parse(format_time_of_cl(next_es(@classes))).to_i * 1000 
+  end
+
+  def next_es(classes)
+    classes.find { |cl| Time.current < time_of_cl(cl) }
+  end
+
+  def time_of_cl(cl)
+    Time.zone.parse format_time_of_cl(cl)
+  end
+
+  def format_time_of_cl(cl)
+    "#{@shifts[cl['shift'].to_s.to_sym]}, #{cl['date']}"
+  end
 end

@@ -42,22 +42,29 @@ $(document).on('turbolinks:load', function() {
     }
   });
 
+  initializeCountdown();
   // Hide countdown block
-  $('.close-countdown').click(function(e) {
-    e.preventDefault();
-    $('#countdown').fadeOut("slow").remove();
-  });
+  // $('.close-countdown').click(function(e) {
+  //   e.preventDefault();
+  //   $('#countdown').fadeOut("slow").remove();
+  // });
 
+});
+
+
+var intervalId;
+var initializeCountdown = function() {
   if ($('#countdown').length > 0) {
-    var date = "1 March 2017 23:59:59";
+    var date = parseInt($('#countdown').data('next-es'));
 
-    setInterval(function(){
-      function getTimeNow(){
+    window.clearInterval(intervalId);
+    intervalId = window.setInterval(function(){
+      function getTimeNow() {
         var d = new Date();
         return d.getTime();
       }
 
-      eventDate = Date.parse(date) / 1e3;
+      eventDate = date / 1e3;
       currentDate = getTimeNow() / 1e3;
       seconds = eventDate - currentDate;
 
@@ -85,13 +92,15 @@ $(document).on('turbolinks:load', function() {
       $('.minutes span').text(minutes);
       $('.minutes').data('easyPieChart').update(
         Math.floor(minutes * 100 / 60 )
-        );
+      );
 
       $('.seconds span').text(seconds);
       $('.seconds').data('easyPieChart').update(
         Math.floor(seconds * 100 / 60)
-        );
+      );
     }, 1000);
+
+    console.log(intervalId);
 
     $('.chart').easyPieChart({
       scaleColor: false,
@@ -102,6 +111,4 @@ $(document).on('turbolinks:load', function() {
       size: 150
     });
   }
-});
-
-
+}
