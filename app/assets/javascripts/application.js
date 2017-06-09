@@ -17,6 +17,14 @@
 //= require turbolinks
 //= require_tree .
 
+$(document).on("turbolinks:click", function(){
+  $(".se-pre-con").show();
+});
+
+$(document).on("turbolinks:load", function(){
+  $(".se-pre-con").fadeOut(50);
+});
+
 $(document).on('turbolinks:load', function() {
   $('.persistent').click(function(e) {
     e.preventDefault();
@@ -37,18 +45,13 @@ $(document).on('turbolinks:load', function() {
 
   // Submit when student id length is 8
   $('#student-id').bind('change keyup', function() {
-    if ($(this).val().length === 8) {
+    if ($(this).val().length >= 8) {
+      $(".se-pre-con").show();
       $(this).closest('form').submit();
     }
   });
 
   initializeCountdown();
-  // Hide countdown block
-  // $('.close-countdown').click(function(e) {
-  //   e.preventDefault();
-  //   $('#countdown').fadeOut("slow").remove();
-  // });
-
 });
 
 
