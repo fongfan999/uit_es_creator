@@ -10,7 +10,7 @@
 
         <% if @classes.present? %>
           <%= render "shared/countdown", next_es: next_es_time,
-            countdown_title: next_es(@classes)['name'] %>
+            countdown_title: next_es_title(@classes) %>
         <% end %>
 
         <%= form_tag root_path, method: :get do %>

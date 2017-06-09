@@ -5,6 +5,13 @@ module HomeHelper
         shift_now > data[:shift])
   end
 
+  def next_es_title(classes)
+    next_es = next_es(classes)
+
+    next_es.slice('name', 'id_number', 'room')
+      .map(&:last).join(' - ') + "(#{next_es['sum']})"
+  end
+
   def next_es_time
     Time.zone.parse(format_time_of_cl(next_es(@classes))).to_i * 1000 
   end
