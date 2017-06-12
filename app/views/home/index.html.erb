@@ -2,12 +2,6 @@
   <div class="row">
     <div id="us-creator" class="col s12 m12 l12"> 
       <div  class="card-panel">
-        <div class="right">
-          <a id="toggle-width" class="hide-on-med-and-downd persistent teal-text lighten-1">
-            <i class="small material-icons">keyboard_arrow_right</i>
-          </a>
-        </div>
-
         <% if @classes.present? %>
           <%= render "shared/countdown", next_es: next_es_time,
             countdown_title: next_es_title(@classes) %>

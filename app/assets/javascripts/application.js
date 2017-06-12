@@ -32,17 +32,6 @@ $(document).on('turbolinks:load', function() {
 
   $('.modal').modal();
 
-  $('#toggle-width').click(function() {
-    // 70%
-    if ($(this).text().trim() === 'keyboard_arrow_right') {
-      $('#content').css('width', '100%');
-      $('#toggle-width i').text('keyboard_arrow_left');
-    } else {
-      $('#content').css('width', '80%');
-      $('#toggle-width i').text('keyboard_arrow_right');
-    }
-  });
-
   // Submit when student id length is 8
   $('#student-id').bind('change keyup', function() {
     if ($(this).val().length >= 8) {
