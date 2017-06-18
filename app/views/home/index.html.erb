@@ -2,7 +2,7 @@
   <div class="row">
     <div id="us-creator" class="col s12 m12 l12"> 
       <div  class="card-panel">
-        <% if @classes.present? %>
+        <% if @classes.present? && next_es_time %>
           <%= render "shared/countdown", next_es: next_es_time,
             countdown_title: next_es_title(@classes) %>
         <% end %>

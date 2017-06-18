@@ -14,6 +14,8 @@ module HomeHelper
 
   def next_es_time
     Time.zone.parse(format_time_of_cl(next_es(@classes))).to_i * 1000 
+  rescue
+    nil
   end
 
   def next_es(classes)
