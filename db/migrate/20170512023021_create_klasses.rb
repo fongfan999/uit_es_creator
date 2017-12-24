@@ -4,7 +4,7 @@ class CreateKlasses < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :code
       t.date :date
-      t.day :day
+      t.string :day
       t.integer :shift
       t.string :room
       t.integer :sum
