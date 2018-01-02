@@ -5,7 +5,7 @@ namespace :es do
     Student.delete_all
     Klass.delete_all
 
-    students = JSON.parse File.read(Rails.root.join('public/students.json'))
+    students = JSON.parse File.read(Rails.root.join('lib/data/students.json'))
     students.each do |student|
       student_id = student.first
       name = student.last['name']

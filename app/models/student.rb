@@ -1,12 +1,11 @@
 require 'net/http'
 
 class Student < ApplicationRecord
-  API_URL = 'http://188.166.237.215:37209/api/v1/daa/uesc.json'
   has_many :exam_schedulers
   has_many :klasses, through: :exam_schedulers
 
   def self.find_student(student_id)
-    JSON.parse Net::HTTP.get URI.parse(API_URL + "?student_id=#{student_id}")
+    JSON.parse Net::HTTP.get URI.parse("#{ENV['API_URL']}?student_id=#{student_id}")
   rescue JSON::ParserError
     {}
   end
