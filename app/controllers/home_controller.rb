@@ -9,7 +9,7 @@ class HomeController < ApplicationController
     unless @student.empty?
       @classes = @student['es']
 
-      Tracker.track(session[:student_id])
+      Tracker.track!(session[:student_id])
     end
   end
 
