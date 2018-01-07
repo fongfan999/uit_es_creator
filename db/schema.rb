@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171222135611) do
+ActiveRecord::Schema.define(version: 20170514015435) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "exam_schedulers", force: :cascade do |t|
     t.integer "student_id"
     t.integer "klass_id"
     t.integer "id_number"
-    t.index ["klass_id"], name: "index_exam_schedulers_on_klass_id"
-    t.index ["student_id"], name: "index_exam_schedulers_on_student_id"
+    t.index ["klass_id"], name: "index_exam_schedulers_on_klass_id", using: :btree
+    t.index ["student_id"], name: "index_exam_schedulers_on_student_id", using: :btree
   end
 
   create_table "klasses", force: :cascade do |t|
@@ -38,7 +41,7 @@ ActiveRecord::Schema.define(version: 20171222135611) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["student_id"], name: "index_students_on_student_id"
+    t.index ["student_id"], name: "index_students_on_student_id", using: :btree
   end
 
   create_table "trackers", force: :cascade do |t|
@@ -47,4 +50,6 @@ ActiveRecord::Schema.define(version: 20171222135611) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "exam_schedulers", "klasses"
+  add_foreign_key "exam_schedulers", "students"
 end

@@ -14,6 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
+gem 'pg'
 
 # Material design
 gem 'rails-assets-materialize', source: 'https://rails-assets.org'
@@ -22,7 +23,6 @@ gem 'rails-assets-easypie', source: 'https://rails-assets.org'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'sqlite3'
   gem 'dotenv-rails'
 end
 
@@ -36,7 +36,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
