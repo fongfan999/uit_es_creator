@@ -92,8 +92,6 @@ var initializeCountdown = function() {
       );
     }, 1000);
 
-    console.log(intervalId);
-
     $('.chart').easyPieChart({
       scaleColor: false,
       trackColor: 'rgba(255,255,255,0.3)',
