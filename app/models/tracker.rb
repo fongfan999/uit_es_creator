@@ -7,6 +7,7 @@ class Tracker < ApplicationRecord
     tracker = Tracker.find_or_initialize_by(student_id: student_id)
 
     if tracker.new_record? || (Time.current - tracker.created_at) > CIRCLETIME
+      tracker.updated_at = Time.current
       tracker.save
     end
 
