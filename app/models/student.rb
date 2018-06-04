@@ -4,12 +4,6 @@ class Student < ApplicationRecord
   has_many :exam_schedulers
   has_many :klasses, through: :exam_schedulers
 
-  def self.find_student(student_id)
-    JSON.parse Net::HTTP.get URI.parse("#{ENV['API_URL']}?student_id=#{student_id}")
-  rescue JSON::ParserError
-    {}
-  end
-
   def as_json(options = {})
     { name: name, es: klasses_with_id_number }
   end
