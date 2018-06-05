@@ -34,8 +34,8 @@ $(document).on('turbolinks:load', function() {
 
   // Submit when student id length is 8
   $('#student-id').bind('change keyup', function() {
-    if ($(this).val().length >= 8) {
-      $(".se-pre-con").show();
+    if ($(this).val().replace(/\D/g, '').length === 8) {
+      $('.se-pre-con').show();
       $(this).closest('form').submit();
     }
   });
