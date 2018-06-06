@@ -32,8 +32,13 @@ $(document).on('turbolinks:load', function() {
 
   $('.modal').modal();
 
-  // Submit when student id length is 8
-  $('#student-id').bind('change keyup', function() {
+  $('#student-id').bind('change keyup', function(e) {
+    // the 4 arrow keys
+    if ([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+      return;
+    }
+
+    // Submit when student id length is 8
     if ($(this).val().replace(/\D/g, '').length === 8) {
       $('.se-pre-con').show();
       $(this).closest('form').submit();
