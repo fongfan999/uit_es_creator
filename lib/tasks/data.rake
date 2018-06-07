@@ -6,7 +6,9 @@ namespace :es do
     Klass.delete_all
 
     students = JSON.parse File.read(Rails.root.join('lib/data/students.json'))
-    students.each do |student|
+    student_size = students.size
+    students.each.with_index do |student, index|
+      puts "#{index.next} / #{student_size}"
       student_id = student.first
       name = student.last['name']
 
