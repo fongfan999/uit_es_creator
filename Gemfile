@@ -17,9 +17,9 @@ gem 'turbolinks', '~> 5'
 gem 'pg'
 
 # Material design
-gem 'rails-assets-materialize', source: 'http://insecure.rails-assets.org/#/'
+gem 'rails-assets-materialize', source: 'https://rails-assets.org'
 # Easy Pie
-gem 'rails-assets-easypie', source: 'http://insecure.rails-assets.org/#/'
+gem 'rails-assets-easypie', source: 'https://rails-assets.org'
 
 group :development, :test do
   gem 'byebug', platform: :mri

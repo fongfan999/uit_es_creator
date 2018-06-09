@@ -1,6 +1,6 @@
 GEM
   remote: https://rubygems.org/
-  remote: http://insecure.rails-assets.org/#/
+  remote: https://rails-assets.org/
   specs:
     actioncable (5.0.1)
       actionpack (= 5.0.1)
