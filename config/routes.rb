@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       get 'daa/uesc'
     end
   end
+
+  get :healthcheck, to: 'pages#healthcheck'
 end
