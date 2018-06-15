@@ -46,6 +46,7 @@ $(document).on('turbolinks:load', function() {
   });
 
   initializeCountdown();
+  $('.tooltipped').tooltip();
 });
 
 
