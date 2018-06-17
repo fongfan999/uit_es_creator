@@ -59,12 +59,7 @@
   <div class="card-panel">
     <!-- Github Star -->
     <div class="right">
-      <a class="github-button"
-         href="https://github.com/fongfan999/uit_es_creator"
-         data-icon="octicon-star"
-         data-size="large"
-         data-show-count="true"
-         aria-label="Star fongfan999/uit_es_creator on GitHub">Star</a>
+      <%= render "shared/github_star" %>
     </div>
     <h5>Hoạt động gần đây (<%= Tracker.distinct_size(:student_id) %>)</h5> <br/>
     <%= render Tracker.recent %>
@@ -77,14 +72,8 @@
       <h5 class="card-panel teal lighten-1 white-text">
         Nhận xét, góp ý
 
-        <!-- Github Star -->
         <div class="right">
-          <a class="github-button"
-             href="https://github.com/fongfan999/uit_es_creator"
-             data-icon="octicon-star"
-             data-size="large"
-             data-show-count="true"
-             aria-label="Star fongfan999/uit_es_creator on GitHub">Star</a>
+          <%= render "shared/github_star" %>
         </div>
       </h5>
 
