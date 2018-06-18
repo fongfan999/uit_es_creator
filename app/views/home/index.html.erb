@@ -57,10 +57,10 @@
 
 <div class="container">
   <div class="card-panel">
-    <!-- Github Star -->
-    <div class="right">
+    <div class="right github-star-wrapper">
       <%= render "shared/github_star" %>
     </div>
+
     <h5>Hoạt động gần đây (<%= Tracker.distinct_size(:student_id) %>)</h5> <br/>
     <%= render Tracker.recent %>
   </div>
